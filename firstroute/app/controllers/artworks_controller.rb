@@ -1,6 +1,6 @@
 class ArtworksController < ApplicationController
  def index
-    artwork = Artwork.all
+    artwork = Artwork.all.select { |art| art.artist_id == params[:user_id].to_i }
 
     render json: artwork 
   end
